@@ -1,0 +1,385 @@
+:root{
+    --main-bg-color: white;
+    --sec-bg-color: deeppink;
+    --other-bg-color: cyan;
+    --special-color: blue;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.hidden{
+    display: none;
+}
+/*----------------------
+        Sign Up
+  ----------------------*/
+
+.signup{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to top, var(--sec-bg-color), var(--other-bg-color));
+}
+
+.signup-form{
+    width: 250px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 70px;
+    text-align: center;
+    color: white;
+}
+
+.signup-form img{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: white;
+}
+
+.signup-form label{
+    font-size: 25px;
+}
+
+.signup-form .input-container{
+    width: 100%;
+    height: 55px;
+    padding: 15px 0;
+}
+.signup-form input{
+    height: 25px;
+    font-size: 18px;
+    color: gray;
+    border: none;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+.signup-form input:focus{
+    outline: none;
+    border: none;
+}
+
+.signup-form .country-code{
+    width: 50px;
+    float: left;
+}
+.signup-form .number{
+    width: 180px;
+    float: right;
+}
+.signup-form .submit{
+    width: 75px;
+    height: 30px;
+    background-color: white;
+    border-radius: 7px;
+    color: rgb(53, 53, 53);
+    margin: auto;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/*----------------------- 
+        Chats Section
+  -----------------------*/
+
+.chats-section{
+    height: 100vh;
+    width: 100%;
+    color: rgb(22, 22, 22);
+    background-color: white;
+}
+
+.chats-groups{
+    width: 25%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid gray;
+}
+
+.chats-chat{
+    width: 75%;
+    height: 100%;
+    float: right;
+}
+
+
+/*------------------------- 
+        Groups Section
+  -------------------------*/
+
+.groups-section{
+    width: 100%;
+    height: 100%;
+}
+
+.groups-app-logo{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.groups-app-logo img{
+    width: auto;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.groups-search{
+    width: 100%;
+    height: 35px;
+    margin: 5px 0;
+    text-align: center;
+    /* margin-bottom: 20px; */
+
+}
+
+.groups-search input{
+    width: 90%;
+    height: 25px;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 5px 3px rgba(255, 20, 145, 0.4);
+    padding: 0 15px;
+}
+.groups-search input:focus{
+    outline: none;
+}
+
+.groups-top-buttons{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.group-join{
+    width: 35%;
+    height: 25px;
+    background: cyan;
+    border: none;
+    border-radius: 20px;
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: 600;
+}
+.group-create{
+    width: 35%;
+    height: 25px;
+    background-color: deeppink;
+    border: none;
+    border-radius: 20px;
+    color: whitesmoke;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+.groups-list{
+    width: 100%;
+    height: 60%;
+    overflow-y: scroll;
+    /* border: 1px solid gray; */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.group{
+    width: 90%;
+    height: 60px;
+    /* border: 1px solid gray; */
+    box-shadow: 0 0 5px 2px rgba(0, 255, 255, 0.315);
+    border-radius: 10px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.group-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+.group-info{
+    width: 70%;
+    height: 55px;
+    font-size: 18px;
+    line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #4e4e4e
+}
+
+.groups-footer-button{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.groups-footer-button button{
+    width: 35%;
+    height: 25px;
+    background: linear-gradient(to left , cyan, deeppink);
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+/*-------------------- 
+        Chat Section
+  --------------------*/
+
+.chat-section{
+    width: 100%;
+    height: 100%;
+}
+.chat-top-info{
+    width: 100%;
+    height: 10%;
+    border-bottom: 2px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.chat-main{
+    width: 100%;
+    height: 78%;
+}
+.chat-bottom{
+    width: 100%;
+    height: 12%;
+    border-top: 2px solid gray;
+}
+.chat-group-logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid gray;
+}
+.chat-group-name{
+    width: 90%;
+    height: 25px;
+    font-size: 18px;
+    color: rgb(34, 34, 34);
+}
+.chat-group-menu{
+    width: 2%;
+    height: 25px;
+    font-size: 20px;
+}
+.chat-massages{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* align-items: stretch; */
+    flex-direction: column;
+    /* justify-content: flex-end;   removed due to scroll bug */
+    overflow-y: scroll;
+}
+
+/* to fix scrolling bug from justify content flex end */
+.scrollFix{  
+    flex: 1 1  auto;
+}
+.chat-massage{
+    width: 100%;
+    height: auto;
+    padding: 5px 20px;
+}
+.chat-massage-sender{
+    width: auto;
+    max-width: 70%;
+    height: auto;
+    padding: 3px 10px 3px 10px;
+    border-radius: 10px;
+}
+
+.chat-massage .self{
+    float: right;
+    background-color: blue;
+    color: white;
+}
+.chat-massage .other{
+    float: left;
+    background-color: lightgray;
+    color: #3a3a3a;
+}
+
+.massager{
+    font-size: 13px;
+    margin-bottom: 5px;
+    
+}
+.chat-massage .self .massager{
+    color: whitesmoke;
+}
+
+.chat-massage .other .massager{
+    color: #505050;
+
+}
+.massage-data{
+    font-size: 18px;
+}
+.massage-data p{
+    white-space: pre-wrap;
+    line-break: anywhere;
+}
+.chat-input-area{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 5px;
+}
+.chat-input{
+    width: 75%;
+    height: 88%;
+}
+.chat-input textarea{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 0 5px 2px rgba(0, 255, 255, 0.9);
+    padding: 0 15px;
+    resize: none;
+    font-size: 16px;
+    line-height: 25px;
+}
+.chat-input textarea{
+    outline: none;
+}
+.chat-send{
+    width: 75px;
+    height: 25px;
+}
+.chat-send button{
+    width: 75px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    background: deeppink;
+}
