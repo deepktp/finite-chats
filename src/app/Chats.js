@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { user } from "../context/user";
@@ -17,14 +17,19 @@ const Chats = () => {
             navigate("/login")
         }
     }, []);
+
+    const [clickedGroup, setClickedGroup] = useState({});
+    const carrier= (id, name, logo)=>{
+        setClickedGroup({id: id, name: name, logo: logo});
+    }
     return ( 
         <>
             <section className="chats-section">
                 <div className="chats-groups">
-                        <Groups />
+                        <Groups callback={carrier} />
                 </div>
                 <div className="chats-chat">
-                        <Chat />
+                        <Chat activeGroup={clickedGroup} />
                </div>
             </section>
         </>

@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 import app from "../context/conn";
 import { getAuth, signInWithPhoneNumber, RecaptchaVerifier, updateProfile} from "firebase/auth";
 import { userContext } from "../context/user";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, serverTimestamp ,doc, setDoc } from "firebase/firestore";
 
 
 const Cookie= new Cookies();
@@ -64,10 +64,11 @@ const Signup = () => {
         updateProfile(auth.currentUser, {
             displayName: name
         }).then(() => {
-            addDoc(collection(firestore, "finite-chats", "users", auth.currentUser.uid), {
+            setDoc(doc(firestore, "users", auth.currentUser.uid), {
                 uid: auth.currentUser.uid,
                 name: auth.currentUser.displayName,
                 phoneNumber: auth.currentUser.phoneNumber,
+                joinedAt: serverTimestamp(),
                 groups: []
             }, {merge: true}).then(() => {
                 navigate("/chats");
