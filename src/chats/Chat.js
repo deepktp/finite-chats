@@ -5,6 +5,7 @@ import {doc, addDoc, query, onSnapshot, limitToLast, collection, serverTimestamp
 
 var scrollHeight;
 var totalScrollHeight;
+var unSubscribeSnapshot;
 
 const Chat = (props) => {
 
@@ -24,7 +25,6 @@ const Chat = (props) => {
     const [clickedGroup, setClickedGroup] = useState({id: "", name: "", logo: ""});
     const [chatMessages, setchatMessages] = useState([]);
     const [chatInput, setChatInput] = useState("");
-    var unSubscribeSnapshot;
 
 
     /**

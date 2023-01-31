@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FB  from "../context/firestore";
 import { doc, arrayUnion, setDoc, serverTimestamp, getDoc, updateDoc } from "firebase/firestore"
 import { user } from "../context/user";
@@ -9,7 +9,10 @@ const GroupsCreate = () => {
     const [groupPin, setGroupPin]= useState("");
     const [error, setError] = useState("");
     const [msg, setMsg] = useState("");
-    const createGroup = () => {
+    const [newGroupId, setNewGroupId] = useState(100000);
+
+
+    const createGroup = async() => {
         // let r = (Math.random()).toString(36).substring(2, 8);
         if(groupName.length<3 || groupName.length > 64){
             setError("Group Name Should be 3 to 64 Charctor Long");
@@ -21,7 +24,9 @@ const GroupsCreate = () => {
         }
         setError("");
         var gid= "100002";
-        setDoc(doc(firestore, "groups", gid), {
+        var ginfo= await getDoc(doc(firestore, "groups", "newGroupInfo"));
+
+        await setDoc(doc(firestore, "groups", gid), {
             gid: gid,
             name: groupName,
             pin: groupPin,
@@ -43,17 +48,11 @@ const GroupsCreate = () => {
             events: [
 
             ]
-        }).then(()=>{
-            updateDoc(doc(firestore, "users", userInfo.uid), {groups: arrayUnion(gid)}).then(()=>{
-                setMsg(`Group Created ID: ${gid} And PIN: ${groupPin}`);
-                setGroupName("");
-                setGroupPin("");
-            }).catch(err=>{
-            console.log(err);
-            });
-
-        }).catch(err=>{
-            console.log(err);
+        })
+        updateDoc(doc(firestore, "users", userInfo.uid), {groups: arrayUnion(gid)}).then(()=>{
+            setMsg(`Group Created ID: ${gid} And PIN: ${groupPin}`);
+            setGroupName("");
+            setGroupPin("");
         })
 
     }
