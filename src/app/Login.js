@@ -1,7 +1,7 @@
 import app from "../context/conn";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAuth } from "firebase/auth"
+import { getAuth, on } from "firebase/auth"
 import  { userContext } from "../context/user";
 
 const Login = () => {
@@ -12,15 +12,15 @@ const Login = () => {
     const auth= getAuth(App);
     
     function toChats(){
-        console.log(auth)
-        const user= auth.currentUser;
-        console.log(user)
-        if(user){
-            userContext(user);
-            navigate("/chats");
-        }else{
-            // navigate("/signup");
-        }
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                userContext(user);
+                navigate("/chats");
+
+            } else {
+                navigate("/signup");
+            }
+          });
     }
 
 
